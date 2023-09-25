@@ -1,2 +1,2 @@
-# Site desenvolido para a materia Desenvolvimento Web
+# Site desenvolvido para a materia Desenvolvimento Web
 
