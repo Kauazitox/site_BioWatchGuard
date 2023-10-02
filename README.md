@@ -10,10 +10,9 @@ A BioWatchGuard é uma empresa líder no campo da saúde tecnológica, compromet
 ![Web 2](https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/layout.png)
 
 # Tecnologias utilizadas
-## Back end
-- Java
-## Front end
-- HTML / CSS / JS
+- HTML
+- CSS
+- JS
 
 # Como executar o projeto
 Pré-requisitos: Java 11
