@@ -7,5 +7,5 @@ A BioWatchGuard é uma empresa líder no campo da saúde tecnológica, compromet
 
 ## Layout web
 
-![Web 1]https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/layout.png)
+![Web 2](https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/layout.png)
 
