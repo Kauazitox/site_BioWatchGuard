@@ -9,3 +9,32 @@ A BioWatchGuard é uma empresa líder no campo da saúde tecnológica, compromet
 
 ![Web 2](https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/layout.png)
 
+# Tecnologias utilizadas
+## Back end
+- Java
+## Front end
+- HTML / CSS / JS
+
+# Como executar o projeto
+Pré-requisitos: Java 11
+```bash
+# clonar repositório
+git clone https://github.com/KauaIFPR/Site_DesWEB
+
+# entrar na pasta do projeto back end
+cd index.html
+
+# executar o projeto
+index.html
+```
+# Autores
+
+O TechHealth Innovators
+
+![Web 2](https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/equipe.png)
+
+O grupo de criação é composto exclusivamente por programadores apaixonados pela arte da codificação. Composto por Eduardo Mattos, Kauã, Eryca e Maria Fernanda, este time reúne talento, experiência e criatividade para conceber soluções tecnológicas inovadoras. Cada membro do grupo traz habilidades únicas para a mesa, permitindo a colaboração e a sinergia necessárias para criar projetos de software de alto nível. Sua profunda compreensão da programação e sua capacidade de resolver problemas complexos são os alicerces sobre os quais construíram projetos de sucesso, como o site da BioWatchGuard. Este grupo é apaixonado por superar desafios tecnológicos e transformar ideias em realidade por meio do código, destacando-se como uma equipe de criação de elite no mundo da programação.
+
+
+
+
