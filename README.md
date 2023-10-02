@@ -21,9 +21,6 @@ Pré-requisitos: Java 11
 # clonar repositório
 git clone https://github.com/KauaIFPR/Site_DesWEB
 
-# entrar na pasta do projeto back end
-cd index.html
-
 # executar o projeto
 index.html
 ```
