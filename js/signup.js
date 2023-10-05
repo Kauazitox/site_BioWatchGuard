@@ -24,7 +24,7 @@ let msgSuccess = document.querySelector('#msgSuccess')
 nome.addEventListener('keyup', () => {
   if(nome.value.length <= 2){
     labelNome.setAttribute('style', 'color: red')
-    labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
+    labelNome.innerHTML = 'Nome *Insira no minimo 4 caracteres'
     nome.setAttribute('style', 'border-color: red')
     validNome = false
   } else {
