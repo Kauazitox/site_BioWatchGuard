@@ -104,7 +104,7 @@ function cadastrar(){
     
   } else {
     msgError.setAttribute('style', 'display: block')
-    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
+    msgError.innerHTML = '<strong>Preencha corretamente os campos antes de cadastrar</strong>'
     msgSuccess.innerHTML = ''
     msgSuccess.setAttribute('style', 'display: none')
   }
