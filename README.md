@@ -15,6 +15,7 @@ A BioWatchGuard é uma empresa líder no campo da saúde tecnológica, compromet
 - HTML
 - CSS
 - JS
+- SCSS
 
 # Como executar o projeto
 Pré-requisitos: Java 11
