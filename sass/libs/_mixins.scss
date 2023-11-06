@@ -1,7 +1,7 @@
-/// Makes an element's :before pseudoelement a FontAwesome icon.
-/// @param {string} $content Optional content value to use.
-/// @param {string} $category Optional category to use.
-/// @param {string} $where Optional pseudoelement to target (before or after).
+/// Torna o pseudoelemento :before de um elemento um ícone FontAwesome.
+/// @param {string} $content Valor de conteúdo opcional a ser usado.
+/// @param {string} $category Categoria opcional a ser usada.
+/// @param {string} $where Pseudoelemento opcional a ser alvo (antes ou depois).
 @mixin icon($content: false, $category: regular, $where: before) {
 
 	text-decoration: none;
@@ -37,11 +37,11 @@
 
 }
 
-/// Applies padding to an element, taking the current element-margin value into account.
-/// @param {mixed} $tb Top/bottom padding.
-/// @param {mixed} $lr Left/right padding.
-/// @param {list} $pad Optional extra padding (in the following order top, right, bottom, left)
-/// @param {bool} $important If true, adds !important.
+/// Aplica preenchimento a um elemento, levando em consideração o valor atual da margem do elemento.
+/// @param {misto} $tb Preenchimento superior/inferior.
+/// @param {misto} $lr Preenchimento esquerdo/direito.
+/// @param {list} $pad Preenchimento extra opcional (na seguinte ordem superior, direita, inferior, esquerda)
+/// @param {bool} $important Se verdadeiro, adiciona !important.
 @mixin padding($tb, $lr, $pad: (0,0,0,0), $important: null) {
 
 	@if $important {
@@ -58,9 +58,9 @@
 
 }
 
-/// Encodes a SVG data URL so IE doesn't choke (via codepen.io/jakob-e/pen/YXXBrp).
-/// @param {string} $svg SVG data URL.
-/// @return {string} Encoded SVG data URL.
+/// Codifica uma URL de dados SVG para que o IE não engasgue (via codepen.io/jakob-e/pen/YXXBrp).
+/// @param {string} $svg URL de dados SVG.
+/// @return {string} URL de dados SVG codificados.
 @function svg-url($svg) {
 
 	$svg: str-replace($svg, '"', '\'');
