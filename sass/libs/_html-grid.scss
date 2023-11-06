@@ -1,15 +1,15 @@
 
-	/// Initializes the current element as an HTML grid.
-	/// @param {mixed} $gutters Gutters (either a single number to set both column/row gutters, or a list to set them individually).
-	/// @param {mixed} $suffix Column class suffix (optional; either a single suffix or a list).
+/// Inicializa o elemento atual como uma grade HTML.
+/// @param {mixed} $gutters Calhas (um único número para definir as calhas de coluna/linha ou uma lista para defini-las individualmente).
+/// @param {mixed} $suffix Sufixo da classe da coluna (opcional; um sufixo único ou uma lista).
 	@mixin html-grid($gutters: 1.5em, $suffix: '') {
 
-		// Initialize.
+		// Inicializar.
 			$cols: 12;
 			$multipliers: 0, 0.25, 0.5, 1, 1.50, 2.00;
 			$unit: 100% / $cols;
 
-			// Suffixes.
+			// Sufixos.
 				$suffixes: null;
 
 				@if (type-of($suffix) == 'list') {
@@ -19,7 +19,7 @@
 					$suffixes: ($suffix);
 				}
 
-			// Gutters.
+			// Calhas.
 				$guttersCols: null;
 				$guttersRows: null;
 
@@ -36,18 +36,18 @@
 
 				}
 
-		// Row.
+		// Linha.
 			display: flex;
 			flex-wrap: wrap;
 			box-sizing: border-box;
 			align-items: stretch;
 
-			// Columns.
+			// Colunas.
 				> * {
 					box-sizing: border-box;
 				}
 
-			// Gutters.
+			// Calhas.
 				&.gtr-uniform {
 					> * {
 						> :last-child {
@@ -56,7 +56,7 @@
 					}
 				}
 
-			// Alignment.
+			// Alinhamento.
 				&.aln-left {
 					justify-content: flex-start;
 				}
@@ -81,10 +81,10 @@
 					align-items: flex-end;
 				}
 
-		// Step through suffixes.
+		// Percorra os sufixos.
 			@each $suffix in $suffixes {
 
-				// Suffix.
+				// Sufixo.
 					@if ($suffix != '') {
 						$suffix: '-' + $suffix;
 					}
@@ -92,14 +92,14 @@
 						$suffix: '';
 					}
 
-				// Row.
+				// Linha.
 
-					// Important.
+					// Importante.
 						> .imp#{$suffix} {
 							order: -1;
 						}
 
-					// Columns, offsets.
+					// Colunas, deslocamentos.
 						@for $i from 1 through $cols {
 							> .col-#{$i}#{$suffix} {
 								width: $unit * $i;
@@ -110,10 +110,10 @@
 							}
 						}
 
-					// Step through multipliers.
+					// Percorra os multiplicadores.
 						@each $multiplier in $multipliers {
 
-							// Gutters.
+							// Calhas.
 								$class: null;
 
 								@if ($multiplier != 1) {
@@ -128,7 +128,7 @@
 										padding: ($guttersRows * $multiplier) 0 0 ($guttersCols * $multiplier);
 									}
 
-									// Uniform.
+									// Uniforme.
 										&.gtr-uniform {
 											margin-top: $guttersCols * $multiplier * -1;
 
