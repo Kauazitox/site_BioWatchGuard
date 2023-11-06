@@ -1,29 +1,28 @@
-// breakpoints.scss v1.0 | @ajlkn | MIT licensed */
 
 // Vars.
 
-	/// Breakpoints.
+	/// Pontos de interrupção.
 	/// @var {list}
 	$breakpoints: () !global;
 
 // Mixins.
 
-	/// Sets breakpoints.
-	/// @param {map} $x Breakpoints.
+	/// Define pontos de interrupção.
+	/// @param {mapa} $x pontos de interrupção.
 	@mixin breakpoints($x: ()) {
 		$breakpoints: $x !global;
 	}
 
-	/// Wraps @content in a @media block targeting a specific orientation.
-	/// @param {string} $orientation Orientation.
+	/// Envolve @content em um bloco @media direcionado a uma orientação específica.
+	/// @param {string} $orientação Orientação.
 	@mixin orientation($orientation) {
 		@media screen and (orientation: #{$orientation}) {
 			@content;
 		}
 	}
 
-	/// Wraps @content in a @media block using a given query.
-	/// @param {string} $query Query.
+	/// Envolve @content em um bloco @media usando uma determinada consulta.
+	/// @param {string} $query Consulta.
 	@mixin breakpoint($query: null) {
 
 		$breakpoint: null;
@@ -32,7 +31,7 @@
 
 		// Determine operator, breakpoint.
 
-			// Greater than or equal.
+			// Maior ou igual.
 				@if (str-slice($query, 0, 2) == '>=') {
 
 					$op: 'gte';
@@ -40,7 +39,7 @@
 
 				}
 
-			// Less than or equal.
+			// Menor ou igual.
 				@elseif (str-slice($query, 0, 2) == '<=') {
 
 					$op: 'lte';
@@ -48,7 +47,7 @@
 
 				}
 
-			// Greater than.
+			// Maior que.
 				@elseif (str-slice($query, 0, 1) == '>') {
 
 					$op: 'gt';
@@ -56,7 +55,7 @@
 
 				}
 
-			// Less than.
+			// Menor que.
 				@elseif (str-slice($query, 0, 1) == '<') {
 
 					$op: 'lt';
@@ -64,7 +63,7 @@
 
 				}
 
-			// Not.
+			// Não.
 				@elseif (str-slice($query, 0, 1) == '!') {
 
 					$op: 'not';
@@ -72,7 +71,7 @@
 
 				}
 
-			// Equal.
+			// Igual.
 				@else {
 
 					$op: 'eq';
@@ -80,61 +79,61 @@
 
 				}
 
-		// Build media.
+		// Crie mídia.
 			@if ($breakpoint and map-has-key($breakpoints, $breakpoint)) {
 
 				$a: map-get($breakpoints, $breakpoint);
 
-				// Range.
+				// Faixa.
 					@if (type-of($a) == 'list') {
 
 						$x: nth($a, 1);
 						$y: nth($a, 2);
 
-						// Max only.
+						// Somente no máximo.
 							@if ($x == null) {
 
-								// Greater than or equal (>= 0 / anything)
+								// Maior ou igual (>= 0 / qualquer coisa)
 									@if ($op == 'gte') {
 										$media: 'screen';
 									}
 
-								// Less than or equal (<= y)
+								// Menor ou igual (<= y)
 									@elseif ($op == 'lte') {
 										$media: 'screen and (max-width: ' + $y + ')';
 									}
 
-								// Greater than (> y)
+								// Maior que (> y)
 									@elseif ($op == 'gt') {
 										$media: 'screen and (min-width: ' + ($y + 1) + ')';
 									}
 
-								// Less than (< 0 / invalid)
+								// Menor que (< 0 / inválido)
 									@elseif ($op == 'lt') {
 										$media: 'screen and (max-width: -1px)';
 									}
 
-								// Not (> y)
+								// Não (> y)
 									@elseif ($op == 'not') {
 										$media: 'screen and (min-width: ' + ($y + 1) + ')';
 									}
 
-								// Equal (<= y)
+								// Igual (<= y)
 									@else {
 										$media: 'screen and (max-width: ' + $y + ')';
 									}
 
 							}
 
-						// Min only.
+						// Apenas mínimo.
 							@else if ($y == null) {
 
-								// Greater than or equal (>= x)
+								// Maior ou igual (>= x)
 									@if ($op == 'gte') {
 										$media: 'screen and (min-width: ' + $x + ')';
 									}
 
-								// Less than or equal (<= inf / anything)
+								// Menor ou igual (<= inf / qualquer coisa)
 									@elseif ($op == 'lte') {
 										$media: 'screen';
 									}
@@ -144,52 +143,52 @@
 										$media: 'screen and (max-width: -1px)';
 									}
 
-								// Less than (< x)
+								// Menor que (<x)
 									@elseif ($op == 'lt') {
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
 
-								// Not (< x)
+								// Não (<x)
 									@elseif ($op == 'not') {
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
 
-								// Equal (>= x)
+								// Igual (>= x)
 									@else {
 										$media: 'screen and (min-width: ' + $x + ')';
 									}
 
 							}
 
-						// Min and max.
+						// Mínimo e máximo.
 							@else {
 
-								// Greater than or equal (>= x)
+								// Maior ou igual (>= x)
 									@if ($op == 'gte') {
 										$media: 'screen and (min-width: ' + $x + ')';
 									}
 
-								// Less than or equal (<= y)
+								// Menor ou igual (<= y)
 									@elseif ($op == 'lte') {
 										$media: 'screen and (max-width: ' + $y + ')';
 									}
 
-								// Greater than (> y)
+								// Maior que (> y)
 									@elseif ($op == 'gt') {
 										$media: 'screen and (min-width: ' + ($y + 1) + ')';
 									}
 
-								// Less than (< x)
+								// Menor que (<x)
 									@elseif ($op == 'lt') {
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
 
-								// Not (< x and > y)
+								// Não (< x e > y)
 									@elseif ($op == 'not') {
 										$media: 'screen and (max-width: ' + ($x - 1) + '), screen and (min-width: ' + ($y + 1) + ')';
 									}
 
-								// Equal (>= x and <= y)
+								// Igual (>= x e <= y)
 									@else {
 										$media: 'screen and (min-width: ' + $x + ') and (max-width: ' + $y + ')';
 									}
@@ -201,12 +200,12 @@
 				// String.
 					@else {
 
-						// Missing a media type? Prefix with "screen".
+						// Faltando um tipo de mídia? Prefixo com "tela".
 							@if (str-slice($a, 0, 1) == '(') {
 								$media: 'screen and ' + $a;
 							}
 
-						// Otherwise, use as-is.
+						// Caso contrário, use como está.
 							@else {
 								$media: $a;
 							}
@@ -215,7 +214,7 @@
 
 			}
 
-		// Output.
+		// Saída.
 	        @media #{$media} {
 				@content;
 			}
