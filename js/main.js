@@ -12,7 +12,7 @@
 			small:   [ null,      '736px'  ]
 		});
 
-	// Play initial animations on page load.
+	// Reproduza animações iniciais no carregamento da página
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
