@@ -1,7 +1,7 @@
 (function($) {
 
 	/**
-	 * @return {jQuery} jQuery object.
+	 * @return {jQuery} objeto jQuery.
 	 */
 	$.fn.navList = function() {
 
@@ -34,17 +34,17 @@
 	};
 
 	/**
-	 * Panel-ify an element.
-	 * @param {object} userConfig User config.
-	 * @return {jQuery} jQuery object.
+	 * Panel-ify um elemento.
+	 * @param {object} userConfig Configuração do usuário.
+	 * @return {jQuery} objeto jQuery.
 	 */
 	$.fn.panel = function(userConfig) {
 
-		// No elements?
+		// Sem elementos?
 			if (this.length == 0)
 				return $this;
 
-		// Multiple elements?
+		// Vários elementos?
 			if (this.length > 1) {
 
 				for (var i=0; i < this.length; i++)
@@ -64,36 +64,36 @@
 		// Config.
 			config = $.extend({
 
-				// Delay.
+				// Atraso.
 					delay: 0,
 
-				// Hide panel on link click.
+				// Ocultar painel ao clicar no link.
 					hideOnClick: false,
 
-				// Hide panel on escape keypress.
+				// Ocultar painel ao pressionar a tecla Escape.
 					hideOnEscape: false,
 
-				// Hide panel on swipe.
+				// Ocultar painel ao deslizar.
 					hideOnSwipe: false,
 
-				// Reset scroll position on hide.
+				// Redefinir a posição de rolagem ao ocultar.
 					resetScroll: false,
 
-				// Reset forms on hide.
+				// Redefinir formulários ao ocultar.
 					resetForms: false,
 
-				// Side of viewport the panel will appear.
+				// Ao lado da janela de visualização, o painel aparecerá.
 					side: null,
 
-				// Target element for "class".
+				// Elemento de destino para "classe".
 					target: $this,
 
-				// Class to toggle.
+				// Classe para alternar.
 					visibleClass: 'visible'
 
 			}, userConfig);
 
-			// Expand "target" if it's not a jQuery object already.
+			// Expanda "target" se ainda não for um objeto jQuery.
 				if (typeof config.target != 'jQuery')
 					config.target = $(config.target);
 
@@ -102,11 +102,11 @@
 			// Methods.
 				$this._hide = function(event) {
 
-					// Already hidden? Bail.
+					// Já está escondido? Fiança.
 						if (!config.target.hasClass(config.visibleClass))
 							return;
 
-					// If an event was provided, cancel it.
+					// Se um evento foi fornecido, cancele-o.
 						if (event) {
 
 							event.preventDefault();
@@ -114,17 +114,17 @@
 
 						}
 
-					// Hide.
+					// Esconder.
 						config.target.removeClass(config.visibleClass);
 
-					// Post-hide stuff.
+					// Coisas pós-ocultar.
 						window.setTimeout(function() {
 
-							// Reset scroll position.
+							// Redefinir a posição de rolagem.
 								if (config.resetScroll)
 									$this.scrollTop(0);
 
-							// Reset forms.
+							// Redefinir formulários.
 								if (config.resetForms)
 									$this.find('form').each(function() {
 										this.reset();
@@ -134,12 +134,12 @@
 
 				};
 
-			// Vendor fixes.
+			// Correções do fornecedor.
 				$this
 					.css('-ms-overflow-style', '-ms-autohiding-scrollbar')
 					.css('-webkit-overflow-scrolling', 'touch');
 
-			// Hide on click.
+			// Ocultar ao clicar.
 				if (config.hideOnClick) {
 
 					$this.find('a')
@@ -155,14 +155,14 @@
 							if (!href || href == '#' || href == '' || href == '#' + id)
 								return;
 
-							// Cancel original event.
+							// Cancelar evento original.
 								event.preventDefault();
 								event.stopPropagation();
 
-							// Hide panel.
+							// Ocultar painel.
 								$this._hide();
 
-							// Redirect to href.
+							// Redirecionar para href.
 								window.setTimeout(function() {
 
 									if (target == '_blank')
@@ -176,7 +176,7 @@
 
 				}
 
-			// Event: Touch stuff.
+			// Evento: Toque em coisas.
 				$this.on('touchstart', function(event) {
 
 					$this.touchPosX = event.originalEvent.touches[0].pageX;
@@ -195,7 +195,7 @@
 						th = $this.outerHeight(),
 						ts = ($this.get(0).scrollHeight - $this.scrollTop());
 
-					// Hide on swipe?
+					// Ocultar ao deslizar?
 						if (config.hideOnSwipe) {
 
 							var result = false,
@@ -237,7 +237,7 @@
 
 						}
 
-					// Prevent vertical scrolling past the top or bottom.
+					// Evite a rolagem vertical além da parte superior ou inferior.
 						if (($this.scrollTop() < 0 && diffY < 0)
 						|| (ts > (th - 2) && ts < (th + 2) && diffY > 0)) {
 
@@ -248,12 +248,12 @@
 
 				});
 
-			// Event: Prevent certain events inside the panel from bubbling.
+			// Evento: Evita que certos eventos dentro do painel borbulhem.
 				$this.on('click touchend touchstart touchmove', function(event) {
 					event.stopPropagation();
 				});
 
-			// Event: Hide panel if a child anchor tag pointing to its ID is clicked.
+			// Evento: oculta o painel se uma tag âncora filha apontando para seu ID for clicada.
 				$this.on('click', 'a[href="#' + id + '"]', function(event) {
 
 					event.preventDefault();
@@ -263,14 +263,13 @@
 
 				});
 
-		// Body.
-
-			// Event: Hide panel on body click/tap.
+		// Corpo.
+			// Evento: Ocultar painel ao clicar/tocar no corpo.
 				$body.on('click touchend', function(event) {
 					$this._hide(event);
 				});
 
-			// Event: Toggle.
+			// Evento: Alternar.
 				$body.on('click', 'a[href="#' + id + '"]', function(event) {
 
 					event.preventDefault();
@@ -282,7 +281,7 @@
 
 		// Window.
 
-			// Event: Hide on ESC.
+			// Evento: Ocultar no ESC.
 				if (config.hideOnEscape)
 					$window.on('keydown', function(event) {
 
@@ -296,20 +295,20 @@
 	};
 
 	/**
-	 * Apply "placeholder" attribute polyfill to one or more forms.
-	 * @return {jQuery} jQuery object.
+	 * * Aplique polyfill do atributo "espaço reservado" a um ou mais formulários.
+	 *  @return {jQuery} objeto jQuery.
 	 */
 	$.fn.placeholder = function() {
 
-		// Browser natively supports placeholders? Bail.
+		// O navegador suporta nativamente espaços reservados? Fiança.
 			if (typeof (document.createElement('input')).placeholder != 'undefined')
 				return $(this);
 
-		// No elements?
+		// Sem elementos?
 			if (this.length == 0)
 				return $this;
 
-		// Multiple elements?
+		// Vários elementos?
 			if (this.length > 1) {
 
 				for (var i=0; i < this.length; i++)
@@ -322,7 +321,7 @@
 		// Vars.
 			var $this = $(this);
 
-		// Text, TextArea.
+		// Texto, TextArea.
 			$this.find('input[type=text],textarea')
 				.each(function() {
 
@@ -362,7 +361,7 @@
 
 				});
 
-		// Password.
+		// Senha.
 			$this.find('input[type=password]')
 				.each(function() {
 
@@ -518,62 +517,62 @@
 	};
 
 	/**
-	 * @param {jQuery} $elements
-	 * @param {bool} condition
+	 * @param {jQuery} $elementos
+	 * @param {bool} condição
 	 */
 	$.prioritize = function($elements, condition) {
 
 		var key = '__prioritize';
 
-		// Expand $elements if it's not already a jQuery object.
+		// Expanda $elements se ainda não for um objeto jQuery.
 			if (typeof $elements != 'jQuery')
 				$elements = $($elements);
 
-		// Step through elements.
+		// Percorra os elementos.
 			$elements.each(function() {
 
 				var	$e = $(this), $p,
 					$parent = $e.parent();
 
-				// No parent? Bail.
+				// Nenhum pai? Fiança.
 					if ($parent.length == 0)
 						return;
 
-				// Not moved? Move it.
+				// Não se mudou? Mova isso.
 					if (!$e.data(key)) {
 
-						// Condition is false? Bail.
+						// A condição é falsa? Fiança.
 							if (!condition)
 								return;
 
-						// Get placeholder (which will serve as our point of reference for when this element needs to move back).
+						// Obtenha o placeholder (que servirá como nosso ponto de referência para quando este elemento precisar voltar).
 							$p = $e.prev();
 
-							// Couldn't find anything? Means this element's already at the top, so bail.
+							// Não foi possível encontrar nada? Significa que este elemento já está no topo, então saia.
 								if ($p.length == 0)
 									return;
 
-						// Move element to top of parent.
+						// Mova o elemento para o topo do pai.
 							$e.prependTo($parent);
 
-						// Mark element as moved.
+						// Marcar o elemento como movido.
 							$e.data(key, $p);
 
 					}
 
-				// Moved already?
+				// Já se mudou?
 					else {
 
-						// Condition is true? Bail.
+						// A condição é verdadeira? Fiança.
 							if (condition)
 								return;
 
 						$p = $e.data(key);
 
-						// Move element back to its original location (using our placeholder).
+						// Mova o elemento de volta ao seu local original (usando nosso espaço reservado).
 							$e.insertAfter($p);
 
-						// Unmark element as moved.
+						// Desmarque o elemento como movido.
 							$e.removeData(key);
 
 					}
