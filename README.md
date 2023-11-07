@@ -7,7 +7,7 @@
   A equipe do TechHealth Innovators trabalhou incansavelmente para criar um site que transmitisse a excelência e a visão global da BioWatchGuard. Estamos orgulhosos de ter contribuído para a missão da empresa de capacitar as pessoas a tomar decisões informadas para uma vida mais saudável, e estamos ansiosos para continuar nossa colaboração no futuro.
 
 
-LINK: https://kauaifpr.github.io/Site_DesWEB/
+LINK: https://kauazitox.github.io/Site_DesWEB/
 
 
 ## Layout web
