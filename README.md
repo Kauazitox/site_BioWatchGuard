@@ -14,6 +14,10 @@ LINK: https://kauazitox.github.io/Site_DesWEB/
 
 ![Web 2](https://github.com/KauaIFPR/Site_DesWEB/blob/main/images/layout.png)
 
+## Plataformas
+
+![Web 2](https://github.com/Kauazitox/Site_DesWEB/blob/main/images/plataformas.png)
+
 # Tecnologias utilizadas
 - HTML
 - CSS
