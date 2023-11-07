@@ -98,13 +98,13 @@ function cadastrar(){
     msgError.innerHTML = ''
     
     setTimeout(()=>{
-        window.location.href = 'signin.html'
+        window.location.href = './signin.html'
     }, 3000)
   
     
   } else {
     msgError.setAttribute('style', 'display: block')
-    msgError.innerHTML = '<strong>Preencha corretamente os campos antes de cadastrar</strong>'
+    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
     msgSuccess.innerHTML = ''
     msgSuccess.setAttribute('style', 'display: none')
   }
