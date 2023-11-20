@@ -31,7 +31,7 @@ Pré-requisitos: Java 11
 ```
 # Autores
 
-O nosso grupo de criação é uma equipe formada exclusivamente por alunos do 4 ano de informatica do Instituto Federal Campus Capanema. Este grupo de Alunos têm uma verdadeira paixão pela arte da codificação. Composto por Eduardo Mattos, Kauã, Eryca e Maria Fernanda, Cada um teve sua contribuição importante no projeto tanto na criação dos designers até na parte da codificação.
+O nosso grupo de criação é uma equipe formada exclusivamente por alunos do 4 ano de informatica do Instituto Federal Campus Capanema. Composto por Eduardo Mattos, Kauã, Eryca e Maria Fernanda, Cada um teve sua contribuição importante no projeto tanto na criação dos designers até na parte da codificação.
 
 
 
