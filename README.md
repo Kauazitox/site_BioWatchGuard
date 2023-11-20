@@ -24,14 +24,11 @@ LINK: https://kauazitox.github.io/site_BioWatchGuard/
 - JS
 - SCSS
 
-# Como executar o projeto
+# Como abrir o projeto
 Pré-requisitos: Java 11
 ```bash
-# clonar repositório
-git clone https://github.com/KauaIFPR/Site_DesWEB
+# clique no link no inicio e tenha acesso ao nosso projeto
 
-# executar o projeto
-index.html
 ```
 # Autores
 
